@@ -1,0 +1,1999 @@
+<!DOCTYPE HTML>
+<html lang="zh">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="C语言学习笔记, 小茗Blog">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>C语言学习笔记 | 小茗Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="小茗Blog" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">小茗Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">小茗Blog</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/1411v6" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/1411v6" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://www.xmubshw.com/clients/hexo/Cyuyanimg.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">C语言学习笔记</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/C%E8%AF%AD%E8%A8%80/">
+                                <span class="chip bg-color">C语言</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/C%E8%AF%AD%E8%A8%80/" class="post-category">
+                                C语言
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2019-12-25
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
+                    2020-07-09
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
+                    2.7k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
+                    10 Min
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="C语言"><a href="#C语言" class="headerlink" title="C语言"></a>C语言</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念:"></a>概念:</h2><pre><code>C语言是一种通用的,面向过程式的计算机程序设计语言,1972年,为了移植于开发UNIX操作系统,丹尼斯里奇在贝尔电话实验室设计开发了C语言.</code></pre><hr>
+<h2 id="涵义"><a href="#涵义" class="headerlink" title="涵义:"></a>涵义:</h2><table>
+<thead>
+<tr>
+<th align="center">涵义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">/<em>…</em>/:用于注释说明</td>
+</tr>
+<tr>
+<td align="center">printf():用于格式化输出到屏幕,printf()函数在’stdio.h’头文件中声明</td>
+</tr>
+<tr>
+<td align="center">stdio.h:头文件(标准输入输出头文件),#include是一个预处理命令,用来引入头文件,当编译器遇到printf()函数时,如果没有找到stdio.h头文件,会发生编译错误</td>
+</tr>
+<tr>
+<td align="center">return 0:语句用于表示退出程序</td>
+</tr>
+<tr>
+<td align="center">int:标识符,定义整数型</td>
+</tr>
+<tr>
+<td align="center">main:C语言入口函数</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="a-和-a区别"><a href="#a-和-a区别" class="headerlink" title="a++和++a区别:"></a>a++和++a区别:</h2><table>
+<thead>
+<tr>
+<th align="center">a++</th>
+<th align="center">++a</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">a = 10 c = a++ 结果为c=10;a=11,此为先赋值后运算</td>
+<td align="center">a = 10 c = ++a 结果为c=11;a=10,此为先运算后赋值</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="C语言关键字"><a href="#C语言关键字" class="headerlink" title="C语言关键字:"></a>C语言关键字:</h2><table>
+<thead>
+<tr>
+<th align="center">C语言关键字</th>
+<th align="center">C语言关键字</th>
+<th align="center">C语言关键字</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">auto:声明自动变量</td>
+<td align="center">break:跳出当前循环,一般与switch连用</td>
+<td align="center">case:开关语句分支.与switch连用</td>
+</tr>
+<tr>
+<td align="center">char:声明字符型变量或函数返回值类型</td>
+<td align="center">const:声明只读变量</td>
+<td align="center">continue:结束当前循环,开始下一轮循环</td>
+</tr>
+<tr>
+<td align="center">default:开关语句中的’其他分支’,一般与switch连用,用于描述其他情况</td>
+<td align="center">do:循环语句的循环体</td>
+<td align="center">double:声明双精度浮点型变量或函数返回值类型</td>
+</tr>
+<tr>
+<td align="center">else:条件语句否定分支(与if连用)</td>
+<td align="center">enum:声明枚举变量</td>
+<td align="center">extern:声明变量或函数是在其它文件或本文件的其他位置定义</td>
+</tr>
+<tr>
+<td align="center">float:声明浮点型变量或函数返回值类型</td>
+<td align="center">for:一种循环语句</td>
+<td align="center">goto:无条件跳转语句</td>
+</tr>
+<tr>
+<td align="center">if:条件语句</td>
+<td align="center">int:声明整型变量或函数</td>
+<td align="center">long:声明长整型变量或函数返回值类型</td>
+</tr>
+<tr>
+<td align="center">register:声明寄存器变量</td>
+<td align="center">return:子程序返回语句(可以带参数,也可以不带参数)</td>
+<td align="center">short:声明短整型变量或函数</td>
+</tr>
+<tr>
+<td align="center">signed:声明有符号类型或变量长度</td>
+<td align="center">static:声明静态变量</td>
+<td align="center">struct:声明结构体类型</td>
+</tr>
+<tr>
+<td align="center">switch:用于开关语句(与case连用)</td>
+<td align="center">typedef:用以给数据类型取别名</td>
+<td align="center">unsigned:声明无符号类型变量或函数</td>
+</tr>
+<tr>
+<td align="center">union:声明共用体类型</td>
+<td align="center">void:声明函数无返回值或无参数,声明无类型指针</td>
+<td align="center">while:循环语句的循环条件</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><table>
+<thead>
+<tr>
+<th align="center">数据类型</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1.基本类型:</td>
+<td align="center">它们是算数类型,包括两种类型:整数类型和浮点类型</td>
+</tr>
+<tr>
+<td align="center">2.枚举类型:</td>
+<td align="center">它们也是算数类型,是被用来定义在程序中只能赋予其一定的离散整数值的变量</td>
+</tr>
+<tr>
+<td align="center">3.void类型:</td>
+<td align="center">类型说明符,void表明没有可用的值</td>
+</tr>
+<tr>
+<td align="center">4.派生类型:</td>
+<td align="center">它们包括:指针类型,数组类型,结构类型,共用体类型和函数类型</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="整数类型"><a href="#整数类型" class="headerlink" title="整数类型"></a>整数类型</h3><table>
+<thead>
+<tr>
+<th align="center">类型</th>
+<th align="center">存储大小</th>
+<th align="center">值范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">char</td>
+<td align="center">1字节</td>
+<td align="center">-128到127或0到255</td>
+</tr>
+<tr>
+<td align="center">unsigned char</td>
+<td align="center">1字节</td>
+<td align="center">0到255</td>
+</tr>
+<tr>
+<td align="center">signed char</td>
+<td align="center">1字节</td>
+<td align="center">-128到127</td>
+</tr>
+<tr>
+<td align="center">int</td>
+<td align="center">2到4字节</td>
+<td align="center">-32,768到32,768或-2,147,483,648到2,147,483,647</td>
+</tr>
+<tr>
+<td align="center">unsogned int</td>
+<td align="center">2到4字节</td>
+<td align="center">0到65,535或0到4,294,967,295</td>
+</tr>
+<tr>
+<td align="center">short</td>
+<td align="center">2字节</td>
+<td align="center">-32,768到32,767</td>
+</tr>
+<tr>
+<td align="center">unsigned short</td>
+<td align="center">2字节</td>
+<td align="center">0到65,535</td>
+</tr>
+<tr>
+<td align="center">long</td>
+<td align="center">4字节</td>
+<td align="center">-2,147,483,648到2,147,483,647</td>
+</tr>
+<tr>
+<td align="center">unsigned long</td>
+<td align="center">4字节</td>
+<td align="center">0到4,294,967,295</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="浮点类型"><a href="#浮点类型" class="headerlink" title="浮点类型"></a>浮点类型</h3><table>
+<thead>
+<tr>
+<th align="center">类型</th>
+<th align="center">存储大小</th>
+<th align="center">值范围</th>
+<th align="center">精度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">float</td>
+<td align="center">4字节</td>
+<td align="center">1.2E-38到3.4E+38</td>
+<td align="center">6位小数</td>
+</tr>
+<tr>
+<td align="center">double</td>
+<td align="center">8字节</td>
+<td align="center">2.3E-308到1.7E+308</td>
+<td align="center">15位小数</td>
+</tr>
+<tr>
+<td align="center">long double</td>
+<td align="center">16字节</td>
+<td align="center">3.4E-4932到1.1E+4932</td>
+<td align="center">19位小数</td>
+</tr>
+</tbody></table>
+<h3 id="void类型"><a href="#void类型" class="headerlink" title="void类型"></a>void类型</h3><pre><code>void类型指定没有可用的值
+1.函数返回为空
+C语言有各种函数都不返回值,或者您可以说它们返回为空,不返回值的函数的返回类型为空,例如:void exit(in status);
+
+2.函数参数为空
+C语言中有各种函数不接受任何参数,不带参数的函数可以接收一个void,例如:int rand(void);
+
+3.指针指向void
+类型为void\*的指针代表对象的地址,而不是类型,例如,内存分配函数void\* malloc(size-t size);返回指向void的指针,可以转换为任何数据类型</code></pre><h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><table>
+<thead>
+<tr>
+<th align="center">类型</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">char</td>
+<td align="center">通常是一个字节(八位),这是一个整数类型</td>
+</tr>
+<tr>
+<td align="center">int</td>
+<td align="center">对机器而言,整数的最自然的大小</td>
+</tr>
+<tr>
+<td align="center">float</td>
+<td align="center">单精度浮点值.格式:1位符号,8位指数,23位小数</td>
+</tr>
+<tr>
+<td align="center">double</td>
+<td align="center">双精度浮点值.格式:1位符号,11位指数,52位小数</td>
+</tr>
+<tr>
+<td align="center">void</td>
+<td align="center">表示类型的缺失</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="变量的声明"><a href="#变量的声明" class="headerlink" title="变量的声明"></a>变量的声明</h3><pre><code>1.一种是需要建立存储空间的,例:int a 在声明时就已经建立了存储空间.
+2.不需要建立存储空间的,通过使用extern关键字声明变量名而不是定义它.
+注:除非有extern关键字,否则都是变量的定义,
+extern int 1; //声明,而不是定义;
+int i; //声明,也是定义</code></pre><hr>
+<h3 id="左值与右值"><a href="#左值与右值" class="headerlink" title="左值与右值"></a>左值与右值</h3><table>
+<thead>
+<tr>
+<th align="center">左值</th>
+<th align="center">右值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">指向内存位置的表达式被成为左值表达式,左值可以出现在赋值号的左边或右边</td>
+<td align="center">术语右值指的是存储在内存中某些地址的数值,右值是不能对其进行赋值的表达式,也就是说,右值可以出现在赋值号的右边,但不能出现在赋值号的左边</td>
+</tr>
+</tbody></table>
+<pre><code>注:变量是左值,因此可以出现在赋值号的左边,数值型的字面值是右值,因此不能被赋值,不能出现在赋值号的左边
+例:
+int g = 20; //此表达式对,成立.
+10 = 20; //此表达式为错,不成立.</code></pre><hr>
+<h2 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h2><pre><code>常量是固定值,在程序执行期间不会改变;
+常量可以是任何的基础数据类型,比如整数常量,浮点常量字符常量或字符串字面值,也有枚举常量;
+常量就像是常规的变量,只不过常量的值在定以后不能修改.</code></pre><p>例:</p>
+<table>
+<thead>
+<tr>
+<th align="center">常量</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">85 十进制</td>
+</tr>
+<tr>
+<td align="center">0213 八进制</td>
+</tr>
+<tr>
+<td align="center">0x4b 十六进制</td>
+</tr>
+<tr>
+<td align="center">30 整数</td>
+</tr>
+<tr>
+<td align="center">30u 无符号整数</td>
+</tr>
+<tr>
+<td align="center">30l 长整数</td>
+</tr>
+<tr>
+<td align="center">30ul 无符号长整数</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="浮点常量"><a href="#浮点常量" class="headerlink" title="浮点常量"></a>浮点常量</h3><pre><code>由整数部分,小数点,小数部分和指数部分组成.
+例:3.14159</code></pre><hr>
+<h3 id="字符常量"><a href="#字符常量" class="headerlink" title="字符常量"></a>字符常量</h3><pre><code>字符常量括在单引号中;
+例:&#39;x&#39;可以存储在char类型的简单变量中
+例:printf(&quot;%d\n&quot;,x)</code></pre><hr>
+<h3 id="转义序列"><a href="#转义序列" class="headerlink" title="转义序列"></a>转义序列</h3><table>
+<thead>
+<tr>
+<th align="center">转义序列</th>
+<th align="center">含义</th>
+<th align="center">转义序列</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">\</td>
+<td align="center">\字符</td>
+<td align="center">\n</td>
+<td align="center">换行符</td>
+</tr>
+<tr>
+<td align="center">&#39;</td>
+<td align="center">‘字符</td>
+<td align="center">\r</td>
+<td align="center">回车</td>
+</tr>
+<tr>
+<td align="center">&quot;</td>
+<td align="center">“字符</td>
+<td align="center">\t</td>
+<td align="center">水平制表符</td>
+</tr>
+<tr>
+<td align="center">?</td>
+<td align="center">?字符</td>
+<td align="center">\v</td>
+<td align="center">垂直制表符</td>
+</tr>
+<tr>
+<td align="center">\a</td>
+<td align="center">警报铃声</td>
+<td align="center">\ooo</td>
+<td align="center">一到三位的八进制数</td>
+</tr>
+<tr>
+<td align="center">\b</td>
+<td align="center">退格键</td>
+<td align="center">\f</td>
+<td align="center">换页符</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="字符串常量"><a href="#字符串常量" class="headerlink" title="字符串常量"></a>字符串常量</h3><pre><code>字符串字面值或常量是括在双引号中的,一个字符串包含类似于字符常量的字符,普通的字符,转义序列和通用的字符.
+你可以使用空格做分隔符,把一个很长的字符串常量进行分行.
+例:
+&quot;Hello,World&quot;
+&quot;Hello,\
+ dear&quot;
+&quot;Hello,&quot;&quot;d&quot;&quot;ear&quot;</code></pre><hr>
+<h3 id="定义常量"><a href="#定义常量" class="headerlink" title="定义常量"></a>定义常量</h3><pre><code>1.使用#define预处理器
+2.使用const关键字
+例:
+#define LENGTH 10 //定义一个常量,把10赋值给常量
+const type variable = value;</code></pre><hr>
+<h2 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h2><table>
+<thead>
+<tr>
+<th align="center">运算符</th>
+<th align="center">描述</th>
+<th align="center">实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">+</td>
+<td align="center">两个数相加</td>
+<td align="center">A+B将得到30</td>
+</tr>
+<tr>
+<td align="center">-</td>
+<td align="center">从第一个操作数中减去第二个操作数</td>
+<td align="center">A-B将得到-10</td>
+</tr>
+<tr>
+<td align="center">*</td>
+<td align="center">两个操作数相乘</td>
+<td align="center">A*B将得到200</td>
+</tr>
+<tr>
+<td align="center">/</td>
+<td align="center">分子除以分母</td>
+<td align="center">B/A将得到2</td>
+</tr>
+<tr>
+<td align="center">%</td>
+<td align="center">取模运算符,整除后的余数</td>
+<td align="center">B%A将得到0</td>
+</tr>
+<tr>
+<td align="center">++</td>
+<td align="center">自增运算符,整数值增加1</td>
+<td align="center">A++将得到11</td>
+</tr>
+<tr>
+<td align="center">–</td>
+<td align="center">自减运算符,整数值减少1</td>
+<td align="center">A–将得到9</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a>关系运算符</h2><table>
+<thead>
+<tr>
+<th align="center">运算符</th>
+<th align="center">描述</th>
+<th align="center">实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">==</td>
+<td align="center">检查两个操作数的值是否相等,如相等则条件为真</td>
+<td align="center">(A==B)为假</td>
+</tr>
+<tr>
+<td align="center">!=</td>
+<td align="center">检查两个操作数的值是否相等,如不相等则条件为真</td>
+<td align="center">(A!=B)为真</td>
+</tr>
+<tr>
+<td align="center">&gt;</td>
+<td align="center">检查左操作数的值是否大于右操作数的值,如果是则条件为真</td>
+<td align="center">(A&gt;B为假)</td>
+</tr>
+<tr>
+<td align="center">&lt;</td>
+<td align="center">检查左操作数的值是否小于右操作数的值,如果是则条件为真</td>
+<td align="center">(A&lt;B为真)</td>
+</tr>
+<tr>
+<td align="center">&gt;=</td>
+<td align="center">检查左操作数的值是否大于或等于右操作数的值,如果是则条件为真</td>
+<td align="center">(A&gt;=B为假)</td>
+</tr>
+<tr>
+<td align="center">&lt;=</td>
+<td align="center">检查左操作数的值是否小于或等于右操作数的值,如果是则条件为真</td>
+<td align="center">(A&lt;=B为真)</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h2><table>
+<thead>
+<tr>
+<th align="center">运算符</th>
+<th align="center">描述</th>
+<th align="center">实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">&amp;&amp;</td>
+<td align="center">逻辑与运算符,如果两个操作数非零,则条件为真</td>
+<td align="center">(A&amp;&amp;B)为假</td>
+</tr>
+<tr>
+<td align="center">||</td>
+<td align="center">逻辑或运算符,如果两个操作数中有任意一个非零,则条件为真</td>
+<td align="center">(A||B)为真</td>
+</tr>
+<tr>
+<td align="center">!</td>
+<td align="center">逻辑非运算符,用来逆转操作数的逻辑状态</td>
+<td align="center">如果条件为真,则逻辑非运算符将使其为假</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h2><table>
+<thead>
+<tr>
+<th align="center">运算符</th>
+<th align="center">描述</th>
+<th align="center">实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">=</td>
+<td align="center">把右边操作数赋给左边操作数</td>
+<td align="center">C=A+B,将A+B的值赋给C</td>
+</tr>
+<tr>
+<td align="center">+=</td>
+<td align="center">加且赋值运算符,把右边操作数加上左边操作数赋给左边操作数</td>
+<td align="center">C+=A相当于C=C+A</td>
+</tr>
+<tr>
+<td align="center">-=</td>
+<td align="center">减且赋值运算符,把右边操作数减去左边操作数赋给左边操作数</td>
+<td align="center">C-=A相当于C=C-A</td>
+</tr>
+<tr>
+<td align="center">*=</td>
+<td align="center">乘且赋值运算符,把右边操作数乘左边操作数赋给左边操作数</td>
+<td align="center">C<em>=A相当于C=C</em>A</td>
+</tr>
+<tr>
+<td align="center">/=</td>
+<td align="center">除且赋值运算符,把左边操作数除以右边操作数赋给左边操作数</td>
+<td align="center">C/=A相当于C=C/A</td>
+</tr>
+<tr>
+<td align="center">%=</td>
+<td align="center">求模且赋值运算符,求两个操作数的模赋值给左边操作数</td>
+<td align="center">C%=A相当于C=C%A</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="占位符"><a href="#占位符" class="headerlink" title="占位符"></a>占位符</h2><table>
+<thead>
+<tr>
+<th align="center">占位符①</th>
+<th align="center">占位符②</th>
+<th align="center">占位符③</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">%d,%i 代表十进制整数</td>
+<td align="center">%f 代表浮点</td>
+<td align="center">%s 代表字符串</td>
+</tr>
+<tr>
+<td align="center">%c 代表char</td>
+<td align="center">%p 代表指针</td>
+<td align="center">%fL 代表长log</td>
+</tr>
+<tr>
+<td align="center">%e 代表科学计数</td>
+<td align="center">%g 代表小数</td>
+<td align="center">%a,%A 代表读入一个浮点值(仅C99可用)</td>
+</tr>
+<tr>
+<td align="center">%c 代表读入一个字符</td>
+<td align="center">%u 代表无符号十进制整数</td>
+<td align="center">% n 代表等价字符</td>
+</tr>
+<tr>
+<td align="center">%o 代表八进制整数</td>
+<td align="center">%x,%X 代表十六禁止整数</td>
+<td align="center">%f,%F,%e,%E,%g,%G 代表实数</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="堆和栈"><a href="#堆和栈" class="headerlink" title="堆和栈"></a>堆和栈</h2><pre><code>栈:有效的是局部变量(在方法和语句块内部定义的变量),当方法和语句块一结束.空间马上释放.
+堆:存放的是成员变量(也叫属性,在方法外,在类里定义的变量),随着对象而产生,随着对象销毁而销毁.
+数据段:存放的是类变量(也叫静态变量,和成员变量相比多加上关键字staic),常驻内存,创建好之后不会消失.
+代码段:是存了程序代码的数据,在代码段中,也有可能包含一些只读的常数变量,例如字符串常量等.</code></pre><hr>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">小茗</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://yoursite.com/2019/12/25/c-yu-yan-xue-xi-bi-ji/">http://yoursite.com/2019/12/25/c-yu-yan-xue-xi-bi-ji/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint polocy. If reproduced, please indicate source
+                    <a href="/about" target="_blank">小茗</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/C%E8%AF%AD%E8%A8%80/">
+                                    <span class="chip bg-color">C语言</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'n5vy9gQnUaBpvgllfBaEfDeW-gzGzoHsz',
+        appKey: '3F1LLlv92dcIFqVqlvqcVdLX',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'en',
+        placeholder: '请输入您的评论'
+    });
+</script>
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2019/12/25/javascript-xue-xi-bi-ji/">
+                    <div class="card-image">
+                        
+                        <img src="https://www.xmubshw.com/clients/hexo/JavaScriptimg.jpg" class="responsive-img" alt="JavaScript学习笔记">
+                        
+                        <span class="card-title">JavaScript学习笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            JavaScript学习笔记
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-12-25
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JavaScript/" class="post-category">
+                                    JavaScript
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JavaScript/">
+                        <span class="chip bg-color">JavaScript</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/12/24/linux-ji-ben-cao-zuo-xue-xi-bi-ji/">
+                    <div class="card-image">
+                        
+                        <img src="https://www.xmubshw.com/clients/hexo/Linuximg.jpg" class="responsive-img" alt="Linux基本操作学习笔记">
+                        
+                        <span class="card-title">Linux基本操作学习笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Linux基本操作学习笔记
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-24
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Linux/" class="post-category">
+                                    Linux
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">小茗</a>
+            |&nbsp;Powered by&nbsp;<a href="https://www.xmubshw.com" target="_blank">小茗Ub生活网</a>
+            |&nbsp;Theme&nbsp;<a href="https://xdhxm.xmubshw.com" target="_blank">小茗'Blog</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">8.6k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2019";
+                    var startMonth = "6";
+                    var startDate = "28";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+            <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                <a href="http://www.beian.gov.cn/apply/selectBeiAn?id=562202" target="_blank">陇ICP备18002661号-2</a>
+            </span>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/1411v6" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:908265504@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=908265504" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 908265504" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+    <a href="https://weibo.com/u/1698701827" class="tooltipped" target="_blank" data-tooltip="关注我的微博: https://weibo.com/u/1698701827" data-position="top" data-delay="50">
+        <i class="fab fa-weibo"></i>
+    </a>
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i["DaoVoiceObject"] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            a.charset = "utf-8";
+            m.parentNode.insertBefore(a, m)
+        })(window, document, "script", ('https:' == document.location.protocol ? 'https:' : 'http:') +
+            "//widget.daovoice.io/widget/6984b559.js", "daovoice")
+        daovoice('init', {
+            app_id: "c4acc70b"
+        });
+        daovoice('update');
+    </script>
+    
+
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/libs/background/ribbon.min.js" async="async"></script>
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
